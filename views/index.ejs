@@ -3,15 +3,12 @@
 	<head>
     	<title><%title%></title>
     <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+		<link rel="icon" href="/images/favicon.ico" />
     	<link rel='stylesheet' href='/stylesheets/style.css' />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta property="og:title" content="31jeol.com" />
-		<meta property="og:description" content="31고사" />
-		<meta
-		  name="description"
-		  content="삼일절을 맞이하여 구름에서 3.1 상식 퀴즈를 준비했어요! 시험에 통과하면 시원한 바나나우유까지..!!"
-		/>
+		<meta property="og:title" content="https://31jeol.com" />
+		<meta property="og:description" content="삼일절을 맞이하여 구름에서 3.1 상식 퀴즈를 준비했어요! 시험에 통과하면 시원한 바나나우유까지..!!" />
 		<meta property="og:image" content="https://cdn.discordapp.com/attachments/677064563841302528/683272336052322314/1.png" />
     <meta property="og:url" content="https://31jeol.com" />
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -79,7 +76,7 @@
 		<div class="scrolbar"></div><!--미완성-->
 		<!--/스크롤바-->
 		<!--내용-->
-		<div class="cnt0 showcnt">
+		<div class="cnt0 showcnt" style="background-color: #fff9f4">
 			<div class="cnt0title">
 				<div class="loadinganiout">
 					<div class="ldupr"></div>
@@ -117,19 +114,25 @@
 					<div class="nomp" style='height:16px; width:90px;'><div class="nomp" style='position:fixed; height:16px; width:42px; background-color:white;'></div><div class="nomp" style='position:absolute; height:16px; width:42px; background-color:white; right:0px;'></div></div>
 				</div>-->
 				<br>
-				<span style='font-size:30px;'>MEMORIAL31</span>
+				<span style='font-size:30px; color:#656565'>삼일고사</span>
 				<br>
-				<span style='font-size:25px; color:gray;'>3.1절을 기념하기 위해, 이 사이트를 찾아주셔서 감사합니다</span>
+				<span style='font-size:25px; color:gray;'>2020학년도 독립운동 영역</span>
 				<br><br>
-				<button class="btn btn-primary" onclick="endintro(1);">
-					스토리
-				</button><span style="margin-left:10px;">Enter ↵를 누르십시오</span>
-				<br><br>
-				<a class="btn btn-warning" href="/31exam">
-					31고사 치러 가기
-				</a><span style="margin-left:10px;">Q를 누르십시오</span>
+				<button class="btn btn-primary" onclick="endintro(1);" style="background-color: #f42f19; font-size: 20px">
+					독립운동 스토리
+				</button>
+				<br>
+				<button class="btn btn-warning" onclick="goto31()" style="background-color: #1d48ac; color: #ffffff; font-size: 20px; margin-top:20px">
+					삼일고사 보기
+				</button>
 			</div>
 			<script>
+				function goto31() {
+					$('body').hide(500);
+					setTimeout(function() {
+						location.href="/31exam";
+					}, 500);
+				}
 				var first=1;
 				var ester=0;
 				var esterkc=0;
@@ -196,9 +199,11 @@
 				});
 			</script>
 		</div>
-		<div class="ester">GM예!!</div>
+		<div class="ester">
+			세미콜론
+		</div>
 		<div class="cnt1">
-			<img src="https://images.squarespace-cdn.com/content/v1/586ebc34d482e9c69268b69a/1561383929968-MOI8KXWZRSDA8HPCD9SU/ke17ZwdGBToddI8pDm48kOpuYd0X07qJVhgwwgKT-eB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UaCnQ13dPGuqvBV4cbli3WxRoVys7IZczOuSwe9V3NfKETKbtsHljwQBpb64LYfElA/USE%2B-%2BSuh%2BSe-ok.%2BThe%2BMarch%2B1st%2BIndependence%2BMovement%2B%28detail1%29.jpg" id="bg">
+			<img src="/images/view1.jpg" id="bg">
 			<div class="story str1">
 				<p>
 					"대한독립 만세!"<br>
@@ -211,7 +216,7 @@
 			</div>
 		</div>
 		<div class="cnt2">
-			<img src="https://waifu2x.booru.pics/outfiles/fe43998f01c20efd0b10b5b814131d99ad6ceae8_s2_n1.jpg" id="bg">
+			<img src="/images/view2.jpg" id="bg">
 			<div class="story str2">
 				<p>
 					3.1운동은 1919년 3월 1일부터 2~3달간 전국에 걸쳐 일어난 독립운동입니다.<br>
@@ -222,7 +227,7 @@
 			</div>
 		</div>
 		<div class="cnt3">
-			<img src="https://waifu2x.booru.pics/outfiles/b94fe0ab61b0094241ec73dc89932e077b14eac4_s2_n2.jpg" id="bg">
+			<img src="/images/view3.jpg" id="bg">
 			<div class="story str3">
 				<p>
 					<h1>3.1운동이 뭘까?</h1>
@@ -233,7 +238,7 @@
 			</div>
 		</div>
 		<div class="cnt4">
-			<img src="https://waifu2x.booru.pics/outfiles/1463c9d7d731eda3bb30185aba3b2dc8e7d33842_s2_n2.jpg" id="bg">
+			<img src="/images/view4.jpg" id="bg">
 			<div class="story str4">
 				<p>
 					<h1>3.1운동의 원인은 무엇이었을까?</h1>
@@ -245,7 +250,7 @@
 			</div>
 		</div>
 		<div class="cnt5">
-			<img src="https://waifu2x.booru.pics/outfiles/687e724e7c25968a1d41fbe4b4985ecccc71086f_s2_n2.jpg" id="bg">
+			<img src="/images/view5.jpg" id="bg">
 			<div class="story str5">
 				<p>
 					<h1>3.1운동의 사전 준비는 어땠을까?</h1>
@@ -258,7 +263,7 @@
 			</div>
 		</div>
 		<div class="cnt6">
-			<img src="https://pbs.twimg.com/media/D0o_KOXVYAAH7GX.jpg" id="bg">
+			<img src="/images/view6.jpg" id="bg">
 			<div class="story str6">
 				<p>
 					<h1>3.1운동이 어떻게 전개되었을까?</h1>
@@ -270,7 +275,7 @@
 			</div>
 		</div>
 		<div class="cnt7">
-			<img src="https://waifu2x.booru.pics/outfiles/885e2d7daddcd7549f0aa8473458233ce47430ea_s2_n2.jpg" id="bg">
+			<img src="/images/view7.jpg" id="bg">
 			<div class="story str7">
 				<p>
 					<h1>3.1운동의 결과는 어떨까?</h1>

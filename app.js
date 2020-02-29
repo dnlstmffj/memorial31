@@ -38,6 +38,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Dipokal HHJ: 최소한의 보안은 하는게 좋을 것 같습니다.
+app.disable('x-powered-by');
+
 
 app.get('/31exam',quizRouter);
 
