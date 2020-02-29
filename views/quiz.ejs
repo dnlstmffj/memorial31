@@ -16,6 +16,25 @@
         font-family: 'rokgr';
       }
 		</style>
+		<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+			appId            : '652592155551719',
+			autoLogAppEvents : true,
+			xfbml            : true,
+			version          : 'v6.0'
+			});
+		};
+		</script>
+		<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+			
+		<script>
+		  FB.init({
+			appId: '652592155551719', //replace with your app ID
+			version: 'v2.7'
+		}); 
+		  </script>
+
 	</head>
 	<body class="pc" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
 		
@@ -208,17 +227,42 @@
 		<div class="shareover" style="background-color: #1B2B4A; color: #FFFFFF; padding-top: 140px">
 			삼일고사를 친구에게 공유하면<br>부활할 수 있어요!<br>
 			<div class="qzbtnbox"> 
-				<a style="background-color: #fdff35;" class="shk btn btn-qzsel" id="kakao-link-btn" href="javascript:sendLink()" onclick="shareclicked()">카카오톡</a>
-				<a style="background-color: #3b5998;" class="shf btn btn-qzsel" href="https://www.facebook.com/sharer/sharer.php?u=https://31jeol.com/" target="_blank" onclick="shareclicked()">페이스북</a>
+				<a class="btn btn-qzsel shk" id="kakao-link-btn" href="javascript:sendLink()">카카오톡</a>
+				<a class="btn btn-qzsel shf" href="https://www.facebook.com/sharer/sharer.php?u=31jeol.com" target="_blank" onclick="shareclicked()">페이스북</a>
 				<script type='text/javascript'>
+					
+					function getData() {
+						$.ajax({
+							url: '/isdone',
+							type : "POST",
+							data: {
+								key:usrId
+							}
+						}).done(function(results) {
+							
+							if(results == 'done') {
+								shared();
+								clearInterval(Timer);
+								
+							} 
+						}).fail(function(results) {
+							alert("서버 내부오류가 발생하였습니다. 나중에 다시시도 하시거나,\n'문의하기'를 통해 개발팀에 문의해주시면 최선을 다해 지원하겠습니다.\n불편을 드려 대단히 죄송합니다.")
+						});
+					}
+					function getRandomArbitrary(min, max) {
+						min = Math.ceil(min);
+						max = Math.floor(max);
+						return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+					}
 					Kakao.init('12e14f3cee6ea871544d6ecd7f7de8ca');
+					var usrId = getRandomArbitrary(1111,9999);
 					function sendLink() {
 					  Kakao.Link.sendDefault({
 						objectType: 'feed',
 						content: {
 						  title: 'Memorial31',
-						  description: '삼일절을 맞이항여 구름에서 3.1 상식 퀴즈를 준비했어요! 시험을 통과하면 시원한 바나나우유도 추첨 지급합니다!',
-						  imageUrl: 'https://cdn.discordapp.com/attachments/677064563841302528/683272336052322314/1.png',
+						  description: '삼일절을 맞이하여 구름에서 3.1 상식 퀴즈를 준비했어요! 시험을 통과하면 시원한 바나나우유도 추첨 지급합니다!',
+						  imageUrl: 'https://cdn.discordapp.com/attachments/677064563841302528/683302184602828819/2.png',
 						  link: {
 							mobileWebUrl: 'https://developers.kakao.com',
 							webUrl: 'https://developers.kakao.com'
@@ -228,13 +272,19 @@
 						  {
 							title: '31고사 치러가기',
 							link: {
-							  mobileWebUrl: '31jeol.com',
-							  webUrl: '31jeol.com'
+							  mobileWebUrl: 'https://31jeol.com',
+							  webUrl: 'https://31jeol.com'
 							}
 						  },
-						]
+						],
+						serverCallbackArgs: '{"key":' + usrId + '}',
+						callback : function(){
+							shared();
+						}
 					  });
+					  var Timer = setInterval(getData, 1000);
 					}
+
 				  //]]>
 				</script>
 			</div>
@@ -269,12 +319,18 @@
 			
 			var shareck=0;
 			function shareclicked() {
-				if(shareck==0) {
-					shareck=1;
-					setTimeout(function() {
+				FB.ui({
+					method: 'share',
+					href: 'https://31jeol.com',
+				}, function(response) {
+				
+					console.log(response);
+					if (response) {
 						shared();
-					}, 3000);
-				}
+					} else {
+						alert('공유되지 않았습니다. 다시 시도해주세요.');
+					}
+				});
 			}
 			
 			function shared() {
@@ -392,7 +448,7 @@
         }).done(function(results) {
           if(results == 'already') {
             alert("1인(동일 IP 대역)당 1번만 응모할 수 있습니다.");
-            window.location.reload();
+            
           } else {
             alert("응모가 성공적으로 완료되었습니다.");
             window.location.reload(); 
@@ -401,45 +457,7 @@
           alert("서버 내부오류가 발생하였습니다. 나중에 다시시도 하시거나,\n'문의하기'를 통해 개발팀에 문의해주시면 최선을 다해 지원하겠습니다.\n불편을 드려 대단히 죄송합니다.")
         });
       }
-      //<![CDATA[
-    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('d7d37f47ea34f3ad866b68cfb8dc2109');
-    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-    Kakao.Link.createDefaultButton({
-      container: '#kakao-link-btn',
-      objectType: 'feed',
-      content: {
-        title: '딸기 치즈 케익',
-        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-        imageUrl: 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-        link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com'
-        }
-      },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845
-      },
-      buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com'
-          }
-        },
-        {
-          title: '앱으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com'
-          }
-        }
-      ]
-    });
-  //]]>
+
 		</script>
 	</body>
 </html>

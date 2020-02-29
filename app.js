@@ -28,6 +28,7 @@ var quizRouter = require('./routes/quiz');
 
 var app = express();
 
+var isDone = [];
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -45,6 +46,20 @@ app.disable('x-powered-by');
 app.get('/31exam',quizRouter);
 
 app.get('/', indexRouter);
+
+app.post('/callback', function(req, res){
+  isDone[req.body.key] = true;
+  res.end();
+});
+
+app.post('/isdone', function(req, res){
+  if(isDone[req.body.key]) {
+    isDone[req.body.key] = false;
+    res.end("done");
+  }
+  res.end("failed");
+});
+
 app.post('/submit', function(req, res){
   const ip = req.headers['x-forwarded-for'] ||
      req.connection.remoteAddress ||
