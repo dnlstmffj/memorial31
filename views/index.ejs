@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title><%title%></title>
+    	<link rel='stylesheet' href='/stylesheets/style.css' />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="31jeol.com" />
+		<meta property="og:description" content="31고사" />
+		<meta
+		  name="description"
+		  content="삼일절을 맞이하여 구름에서 3.1 상식 퀴즈를 준비했어요! 시험에 통과하면 시원한 바나나우유까지..!!"
+		/>
+		<meta property="og:image" content="https://cdn.discordapp.com/attachments/677064563841302528/683272336052322314/1.png" />
+    <meta property="og:url" content="https://31jeol.com" />
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	</head>
+	<body onload="lded()" class="scrolrm" id="body">
+		<!--로딩관련-->
+    <div class="loadingpage">
+		</div>
+		<script>
+			var ldedck=0;//1 일단 건너뛰기위해 로딩됐을때 없어지게함
+			var ready=0;
+			setInterval(function() { 
+				if(ldedck!=2) {
+					jQuery( document ).ready( function( $ ) {
+						$('html').scrollTop(0);
+					});
+				} 
+			}, 5);
+			
+			setTimeout(function() {
+				ldedck++;
+				if(ldedck==2) {
+					ldhide();
+				}
+			}, 1500);
+			
+			function ldhide() {
+				jQuery( document ).ready( function( $ ) {
+					$('.loadingpage').fadeTo('slow', 0, function() {  });
+					animationstart();
+					setTimeout(function() {
+						$('.loadingpage').remove();
+						ready=1;
+					}, 500);
+				});
+			}
+			function lded() {
+				ldedck++;
+				if(ldedck==2) {
+					ldhide();
+				}
+			}
+			function animationstart() {
+				jQuery( document ).ready( function( $ ) {
+					$('#cont_main_title').addClass('cont_main_title_animation');
+					$('#body').removeClass('scrolrm');
+					$('.loadinganiout').addClass('loadinganioutaf');
+					/*
+					$('.tg_lt').addClass('tg_lt_ani');
+					$('.tg_rt').addClass('tg_rt_ani');
+					$('.tg_lb').addClass('tg_lb_ani');
+					$('.tg_rb').addClass('tg_rb_ani');*/
+				});
+			}
+		</script>
+		<!--/로딩관련-->
+		<!--스크롤바-->
+		<div class="scrolbar"></div><!--미완성-->
+		<!--/스크롤바-->
+		<!--내용-->
+		<div class="cnt0 showcnt">
+			<div class="cnt0title">
+				<div class="loadinganiout">
+					<div class="ldupr"></div>
+					<div class="lddnr"></div>
+					<div class="ldup"></div>
+					<div class="lddn"></div>
+				</div>
+				<!--
+				<div class="tg tg_lt">
+					<div class="nomp" style='height:16px; width:90px; background-color:white;'></div>
+					<div class="nomp" style='height:6px; width:90px;'></div>
+					<div class="nomp" style='height:16px; width:90px; background-color:white;'></div>
+					<div class="nomp" style='height:6px; width:90px;'></div>
+					<div class="nomp" style='height:16px; width:90px; background-color:white;'></div>
+				</div>
+				<div class="tg tg_lb">
+					<div class="nomp" style='height:16px; width:90px; background-color:white;'></div>
+					<div class="nomp" style='height:6px; width:90px;'></div>
+					<div class="nomp" style='height:16px; width:90px;'><div class="nomp" style='position:fixed; height:16px; width:42px; background-color:white;'></div><div class="nomp" style='position:absolute; height:16px; width:42px; background-color:white; right:0px;'></div></div>
+					<div class="nomp" style='height:6px; width:90px;'></div>
+					<div class="nomp" style='height:16px; width:90px; background-color:white;'></div>
+				</div>
+				<div class="tg tg_rt">
+					<div class="nomp" style='height:16px; width:90px;'><div class="nomp" style='position:fixed; height:16px; width:42px; background-color:white;'></div><div class="nomp" style='position:absolute; height:16px; width:42px; background-color:white; right:0px;'></div></div>
+					<div class="nomp" style='height:6px; width:90px;'></div>
+					<div class="nomp" style='height:16px; width:90px; background-color:white;'></div>
+					<div class="nomp" style='height:6px; width:90px;'></div>
+					<div class="nomp" style='height:16px; width:90px;'><div class="nomp" style='position:fixed; height:16px; width:42px; background-color:white;'></div><div class="nomp" style='position:absolute; height:16px; width:42px; background-color:white; right:0px;'></div></div>
+				</div>
+				<div class="tg tg_rb">
+					<div class="nomp" style='height:16px; width:90px;'><div class="nomp" style='position:fixed; height:16px; width:42px; background-color:white;'></div><div class="nomp" style='position:absolute; height:16px; width:42px; background-color:white; right:0px;'></div></div>
+					<div class="nomp" style='height:6px; width:90px;'></div>
+					<div class="nomp" style='height:16px; width:90px;'><div class="nomp" style='position:fixed; height:16px; width:42px; background-color:white;'></div><div class="nomp" style='position:absolute; height:16px; width:42px; background-color:white; right:0px;'></div></div>
+					<div class="nomp" style='height:6px; width:90px;'></div>
+					<div class="nomp" style='height:16px; width:90px;'><div class="nomp" style='position:fixed; height:16px; width:42px; background-color:white;'></div><div class="nomp" style='position:absolute; height:16px; width:42px; background-color:white; right:0px;'></div></div>
+				</div>-->
+				<br>
+				<span style='font-size:30px;'>MEMORIAL31</span>
+				<br>
+				<span style='font-size:25px; color:gray;'>3.1절을 기념하기 위해, 이 사이트를 찾아주셔서 감사합니다</span>
+				<br><br>
+				<button class="btn btn-primary" onclick="endintro(1);">
+					스토리
+				</button><span style="margin-left:10px;">Enter ↵를 누르십시오</span>
+				<br><br>
+				<a class="btn btn-warning" href="/31exam">
+					31고사 치러 가기
+				</a><span style="margin-left:10px;">Q를 누르십시오</span>
+			</div>
+			<script>
+				var first=1;
+				var ester=0;
+				var esterkc=0;
+				jQuery( document ).ready( function( $ ) {
+					$(document).keyup(function(e) {
+						if(ready==1) {
+							if (e.keyCode == 13) {
+								if(first==1) {
+									endintro(1);
+									first=0;
+								}
+							}
+							if (e.keyCode == 37) {
+								//left
+								if(pageaction==1&&nowpage!=1) {
+									page(nowpage-1,nowpage);
+									nowpage--;
+								}
+							}
+							if (e.keyCode == 39) {
+								//right
+								if(pageaction==1&&nowpage!=7) {
+									page(nowpage+1,nowpage);
+									nowpage++;
+								} else if(pageaction==1&&nowpage==7) {
+									gotomain(1);
+								}
+							}
+							if (e.keyCode == 81) {
+								if(first==1) {
+									location.href='/31exam';
+									first=0;
+								}
+								
+							}
+							
+							/*이스터 에그 건드리지 마슈! ㅇㅋ*/
+							if (e.keyCode == 51) {
+								if(esterkc==0) {
+									esterkc=1;
+									ester++;
+								} else {
+									ester=0;
+									esterkc=0;
+								}
+							} else if (e.keyCode == 49) {
+								if(ester==19) {
+									$('.ester').addClass('ershow');
+								} else {
+									if(esterkc==1) {
+										esterkc=0;
+										ester++;
+									} else {
+										ester=0;
+										esterkc=0;
+									}
+								}
+							} else {
+								ester=0;
+								esterkc=0;
+							}
+						}
+					});
+				});
+			</script>
+		</div>
+		<div class="ester">GM예!!</div>
+		<div class="cnt1">
+			<img src="https://images.squarespace-cdn.com/content/v1/586ebc34d482e9c69268b69a/1561383929968-MOI8KXWZRSDA8HPCD9SU/ke17ZwdGBToddI8pDm48kOpuYd0X07qJVhgwwgKT-eB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UaCnQ13dPGuqvBV4cbli3WxRoVys7IZczOuSwe9V3NfKETKbtsHljwQBpb64LYfElA/USE%2B-%2BSuh%2BSe-ok.%2BThe%2BMarch%2B1st%2BIndependence%2BMovement%2B%28detail1%29.jpg" id="bg">
+			<div class="story str1">
+				<p>
+					"대한독립 만세!"<br>
+					"조선 독립 만세!"<br>
+					어디서 들리는 목소리일까요?<br>
+					바로 1919년 3월 1일, 일본의 지배에 항거한 우리 선조들의 목소리입니다.<br>
+					조선의 독립을 위해 모두가 한마음으로 만세를 외친 그날, 3.1운동의 현장으로 돌아가 봅니다.
+				</p>
+				<button class="btn btn-success str_nxt" onclick="page(2,1)">다음→</button>
+			</div>
+		</div>
+		<div class="cnt2">
+			<img src="https://waifu2x.booru.pics/outfiles/fe43998f01c20efd0b10b5b814131d99ad6ceae8_s2_n1.jpg" id="bg">
+			<div class="story str2">
+				<p>
+					3.1운동은 1919년 3월 1일부터 2~3달간 전국에 걸쳐 일어난 독립운동입니다.<br>
+					일본의 무력적인 진압에도 굴하지 않고 독립을 위해 힘쓴 선조들의 마음을 느낄 수 있는 사건입니다.<br>
+					그런데, 우리는 3.1운동에 대해 잘 알고 있을까요?
+				</p>
+				<button class="btn btn-danger str_pre" onclick="page(1,2)">←이전</button><button class="btn btn-success str_nxt" onclick="page(3,2)">다음→</button>
+			</div>
+		</div>
+		<div class="cnt3">
+			<img src="https://waifu2x.booru.pics/outfiles/b94fe0ab61b0094241ec73dc89932e077b14eac4_s2_n2.jpg" id="bg">
+			<div class="story str3">
+				<p>
+					<h1>3.1운동이 뭘까?</h1>
+					3.1운동 또는 3.1 만세 운동은 일제강점기 시절, 조선인들이 일제의 지배에 항거하여 1919년 3월 1일 한일병합조약의 무효와 한국의 독립을 선언하고 비폭력 만세운동을 시작한 사건입니다.<br>
+					기미년에 일어나 기미독립운동이라고도 부릅니다.
+				</p>
+				<button class="btn btn-danger str_pre" onclick="page(2,3)">←이전</button><button class="btn btn-success str_nxt" onclick="page(4,3)">다음→</button>
+			</div>
+		</div>
+		<div class="cnt4">
+			<img src="https://waifu2x.booru.pics/outfiles/1463c9d7d731eda3bb30185aba3b2dc8e7d33842_s2_n2.jpg" id="bg">
+			<div class="story str4">
+				<p>
+					<h1>3.1운동의 원인은 무엇이었을까?</h1>
+					3.1운동의 기본적인 원인은 한국의 민족주의와, 대한 제국의 국권 피탈이라고 볼 수 있습니다.<br>
+					그러나 3.1운동에 영향을 준 2.8독립 선언과 민족자결주의, 3.1운동의 직접적인 원인이 된 파리 강화 회의도 빼놓을 수 없습니다.<br>
+					또한 고종 독살설도 3.1운동의 도화선이라고 볼 수 있습니다.
+				</p>
+				<button class="btn btn-danger str_pre" onclick="page(3,4)">←이전</button><button class="btn btn-success str_nxt" onclick="page(5,4)">다음→</button>
+			</div>
+		</div>
+		<div class="cnt5">
+			<img src="https://waifu2x.booru.pics/outfiles/687e724e7c25968a1d41fbe4b4985ecccc71086f_s2_n2.jpg" id="bg">
+			<div class="story str5">
+				<p>
+					<h1>3.1운동의 사전 준비는 어땠을까?</h1>
+					일제강점기 시대, 일제의 무단 통치가 계속되었습니다.<br>
+					이런 가운데 미국 대통령 우드로 윌슨이 제안한 14개의 전후 처리 원칙 중에 '각 민족의 운명은 그 민족이 스스로 결정하게 하자'라는 민족자결주의가 알려지게 되고, 조선의 독립운동가들은 민족자결주의의 영향을 받게 됩니다.<br>
+					파리 강화 회의에 일제의 무단통치를 알리기 위해 여운형과 신규식 등이 신한청년당을 조직하였고, 김규식을 강화회의에 파견합니다. 김규식은 당원들에게 독립 시위 주문을 하는데, 이는 3.1운동의 계기가 됩니다.<br>
+					한편 천도교, 기독교, 불교도인들이 대표로 참여하여 독립선언서를 만들어 낭독하기로 합니다.
+				</p>
+				<button class="btn btn-danger str_pre" onclick="page(4,5)">←이전</button><button class="btn btn-success str_nxt" onclick="page(6,5)">다음→</button>
+			</div>
+		</div>
+		<div class="cnt6">
+			<img src="https://pbs.twimg.com/media/D0o_KOXVYAAH7GX.jpg" id="bg">
+			<div class="story str6">
+				<p>
+					<h1>3.1운동이 어떻게 전개되었을까?</h1>
+					3.1운동 첫날 독립선언서를 낭독하기로 한 민족대표 33인은 원래 약속 장소였던 탑골공원이 아닌 태화관에서 독립선언서를 낭독합니다.<br>
+					한편 탑골공원에 모여있던 학생들이 만세운동을 시작했고, 수많은 군중이 참여하였습니다.<br>
+					천안 아우내장터에서 시작한 3.1운동은 전국적으로 퍼져나갔고, 전 세계 한인 거주 지역에서 일어났습니다.
+				</p>
+				<button class="btn btn-danger str_pre" onclick="page(5,6)">←이전</button><button class="btn btn-success str_nxt" onclick="page(7,6)">다음→</button>
+			</div>
+		</div>
+		<div class="cnt7">
+			<img src="https://waifu2x.booru.pics/outfiles/885e2d7daddcd7549f0aa8473458233ce47430ea_s2_n2.jpg" id="bg">
+			<div class="story str7">
+				<p>
+					<h1>3.1운동의 결과는 어떨까?</h1>
+					3.1운동 이후 일제는 무력에서 민족분열책인 문화통치로 정책을 바꾸게 됩니다. 그리하여 단체 활동과 언론활동이 일부 자유로워졌습니다.<br>
+					또한 대한민국 임시정부가 수립되었고, 국외 무장 독립 투쟁을 촉진하게 됩니다.<br>
+					이후 5.4운동을 비롯한 세계 독립운동에 영향을 미치게 됩니다.
+				</p>
+				<button class="btn btn-danger str_pre" onclick="page(6,7)">←이전</button><button class="btn btn-success str_nxt" onclick="gotomain(1);">메인으로→</button>
+			</div>
+		</div>
+
+		<script>
+			var fullpage=7;
+			var fullqz=5;
+			var pageaction=0;
+			var quizaction=0;
+			var nowpage=1;
+			var quizpage=1;
+			for(var i=1; i<=fullpage;i++) {
+				$('.cnt'+i).hide();
+				$('.str'+i).hide();
+			}
+			//$('.qz').hide();
+			function endintro(what) {
+				if(what==1) {
+					jQuery( document ).ready( function( $ ) {
+						$('.cnt0').removeClass('showcnt');
+						$('.cnt1').show();
+						$('.str1').show();
+						$('.cnt1').addClass('showcnt');
+						pageaction=1;
+						setTimeout(function() {
+							$('.cnt0').hide();
+						}, 500);
+					});
+				}
+					
+			}
+			function page(now,old) {
+				$('.cnt'+now).show();
+				$('.str'+now).show();
+				$('.cnt'+old).hide();
+				$('.str'+old).hide();
+			}
+			function gotomain(ways) {
+				if(ways==1) {
+					pageaction=0;
+					nowpage=1;
+					$('.cnt1').removeClass('showcnt');
+					$('.cnt7').hide();
+					$('.str7').hide();
+					$('.cnt0').show();
+					$('.cnt0').addClass('showcnt');
+					first=1;
+				}
+			}
+		</script>
+		<!--/내용-->
+	</body>
+</html>
