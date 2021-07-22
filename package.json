@@ -20,6 +20,6 @@
     "nodemon": "^2.0.2",
     "package-lock.json": "^1.0.0",
     "package.json": "^2.0.1",
-    "xlsx": "^0.15.5"
+    "xlsx": "^0.17.0"
   }
 }
